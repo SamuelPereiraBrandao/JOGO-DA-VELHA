@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --background: #202124;
+    --cell-tamanho: 100px;
+    --marca-tamanho: calc(var(--cell-tamanho) * 0.9);
+}
+body{
+    background: var(--background);
+}
+header{
+    text-align: center;
+    color: white;
+    font: 400 12pt "Roboto", sens-serif;
+    margin: 64px 0 64px 0;
+}
+.nome-do-jogo{
+    text-align: center;
+    color: white;
+    font: 400 45pt "Roboto", sens-serif;
+    margin: 20px 0 10px 0;
+}
+main.final{
+    filter:blur(4px);
+    --webkit-animation: blur(4px);
+}
+.board {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+
+    grid-template-columns: repeat(3, auto);
+}
+.cell {
+    width: var(--cell-tamanho);
+    height: var(--cell-tamanho);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px white solid;
+    border-top: none;
+    border-right: none;
+
+    cursor: pointer;
+
+    position: relative;
+}
+.cell:nth-child(3n + 1){
+    border-left: none;
+}
+.cell:nth-child(n + 7){
+    border-bottom: none;
+}
+.cell.x::before,
+.cell.x::after,
+.cell.o::before{
+    background-color: white;
+
+}
+.board.x .cell:not(.x):not(.o):hover::before,
+.board.x .cell:not(.x):not(.o):hover::after,
+.board.o .cell:not(.x):not(.o):hover::before{
+    background-color: #3d3d3d;
+}
+
+.board.x .cell:not(.x):not(.o):hover:before,
+.board.x .cell:hover::after,
+.cell.x::before,
+.cell.x::after {
+    content:"";
+    width: calc(var(--marca-tamanho) * 0.15);
+    height: var(--marca-tamanho);
+    
+    position: absolute;
+}
+.board.x .cell:not(.x):not(.o):hover::before,
+.cell.x::before{
+    transform: rotate(45deg);
+}
+.board.x .cell:not(.x):not(.o):hover::after,
+.cell.x::after{
+    transform: rotate(-45deg);
+}
+.board.o .cell:not(.x):not(.o):hover::before,
+.board.o .cell:not(.x):not(.o):hover::after,
+.cell.o::before,
+.cell.o::after {
+    content:"";
+    border-radius: 50%;
+
+    position: absolute;
+}
+.board.o .cell:not(.x):not(.o):hover::before,
+.cell.o::before{
+    width:  calc(var(--marca-tamanho) * 0.9);
+    height: calc(var(--marca-tamanho)* 0.9);
+}
+.board.o .cell:not(.x):not(.o):hover::after,
+.cell.o::after{
+    width:  calc(var(--marca-tamanho) * 0.7);
+    height: calc(var(--marca-tamanho)* 0.7);
+    transform: rotate(-45deg);
+    background-color: var(--background);
+}
+.cell.x,
+.cell.o {
+    cursor: not-allowed;
+}
+.mensagem-de-jogo-final{
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font: 400 24pt "Roboto", sens-serif;
+}
+.mensagem-de-jogo-final button{
+    font-size: 14pt;
+    background-color: var(--background);
+    border: 1px solid white;
+    color: white;
+    padding: 8px;
+    border-radius: 15px;
+    margin: 8px;
+    cursor: pointer;
+}
+.mensagem-de-jogo-final button:hover{
+    filter: brightness(130%);
+}
+.mensagem-de-jogo-final.show {
+    display: flex;
+}
