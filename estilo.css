@@ -25,8 +25,8 @@ header{
     margin: 20px 0 10px 0;
 }
 main.final{
-    filter:blur(4px);
-    --webkit-animation: blur(4px);
+    filter:blur(6px);
+    --webkit-animation: blur(6px);
 }
 .board {
     display: grid;
@@ -128,9 +128,9 @@ main.final{
     font: 400 24pt "Roboto", sens-serif;
 }
 .mensagem-de-jogo-final button{
-    font-size: 14pt;
+    font-size: 30pt;
     background-color: var(--background);
-    border: 1px solid white;
+    border: 0px solid white;
     color: white;
     padding: 8px;
     border-radius: 15px;
