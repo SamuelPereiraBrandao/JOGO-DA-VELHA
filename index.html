@@ -20,7 +20,7 @@
             <br> É um jogo de regras extremamente simples, que não traz grandes dificuldades para seus jogadores e é facilmente aprendido.
             <br> Nele é necessário colocar três símbolos iguais em sequência para ganhar.</p>
         </header>
-        <div class="board o" id="board">
+        <div class="board" id="board">
             <div class="cell x"></div>
             <div class="cell o"></div>
             <div class="cell"></div>
@@ -32,9 +32,10 @@
             <div class="cell"></div>
         </div>
     </main>
-    <div class="mensagem-de-jogo-final" id="gameEndMessage">
-        <div data-mensagem-final-jogo>O X venceu!</div>
-        <button id="restartButton">Reiniciar</button>
+    <div class="mensagem-de-jogo-final" id="gameEndElement">
+        <div data-game-end-message></div>
+        <button id="restartButton">REINICIAR</button>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
